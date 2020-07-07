@@ -39,7 +39,7 @@ class MainActivity : BaseActivity() {
         mRoomAdater = RoomAdapter(mContext, R.layout.room_list_item, mRoomList)
         roomListView.adapter = mRoomAdater
     
-    
+
     }
 
 
