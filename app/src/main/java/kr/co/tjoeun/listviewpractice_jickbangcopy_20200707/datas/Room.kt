@@ -23,5 +23,25 @@ class Room(
             return String.format("%,d만원", this.price)
         }
 
+        }
+
+    fun getFormattedFloor() : String{
+
+        //지상층 (1이상) / 반지하(0층) / 지하층( -1 ~ 그 이하)
+        if(this.floor >= 1){
+            //지상
+            return "${this.floor}층"
+        }
+        else if(this.floor == 0){
+            //반지하
+            return  "반지하"
+        }
+        else{
+
+            //이미 들어있는 값이 -1 등의 음수이었으므로, 다시 -1을 곱해서 양수가 나오도록 부호 변경
+            return "지하 ${-this.floor}층"
+
+        }
+
     }
 }
