@@ -1,11 +1,13 @@
 package kr.co.tjoeun.listviewpractice_jickbangcopy_20200707.datas
 
+import java.io.Serializable
+
 class Room(
     val price: Int,
     val address: String,
     val floor: Int,
-    val description: String
-) {
+    val description: String) : Serializable
+{
 
     //억 단위 , 처리 / 주소 옆에 ,+층수
     fun getFormattedPrice(): String {

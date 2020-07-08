@@ -1,5 +1,6 @@
 package kr.co.tjoeun.listviewpractice_jickbangcopy_20200707
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,9 +29,18 @@ class MainActivity : BaseActivity() {
 
             val clickedRoom = mRoomList[position]
 
-            //눌린 방의 정보를 상세화면 Activity에 전달
+            //눌린 방의 정보를 상세화면에 전달
 
-            // Toast.makeText(this,clickedRoom, Toast.LENGTH_SHORT).show()
+
+            val myIntent = Intent(mContext, ViewRoomDetailActibity::class.java)
+
+            //putExtra로 방 정보 첨부 => 방 데이터를 한꺼번에 첨부
+            myIntent.putExtra("room", clickedRoom)
+            //myIntent.putExtra("room", clickedRoom) 에러발생이 정상
+            //직접만든 클래스(clickedRoom)는 그대로 담거나 뽑아낼 수 없음(그대로 담거나 뽑아낼 수 있는 자료형은 정해져있음)
+            //데이터클래스(Room)의 선언문에 상속처럼 : Serializable 작성
+
+            startActivity(myIntent)
         }
 
     }
