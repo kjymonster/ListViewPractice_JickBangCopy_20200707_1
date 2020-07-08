@@ -3,6 +3,9 @@ package kr.co.tjoeun.listviewpractice_jickbangcopy_20200707
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_view_room_detail_actibity.*
+import kotlinx.android.synthetic.main.room_list_item.*
+import kotlinx.android.synthetic.main.room_list_item.priceTxt
 import kr.co.tjoeun.listviewpractice_jickbangcopy_20200707.datas.Room
 
 class ViewRoomDetailActibity : BaseActivity() {
@@ -22,6 +25,12 @@ class ViewRoomDetailActibity : BaseActivity() {
 
     override fun setValues() {
        val receivedRoom = intent.getSerializableExtra("room") as Room
+
+        priceTxt.text = receivedRoom.getFormattedPrice()
+        commentTxt.text =receivedRoom.description
+        addressTxt.text = receivedRoom.address
+        floorTxt.text = receivedRoom.getFormattedFloor()
+
 
 
     }
